@@ -1,0 +1,24 @@
+.footer {
+    margin: 26rem 0 0 3rem;
+    color: black;
+    font-weight: bold;
+    opacity: 60%;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  @media only screen and (min-width: 1601px)  {                                      /* Desktop */
+    .footer {
+        margin-top: 26rem;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) and (min-width: 481px)  {                              /* iPad and Tablets */
+    .footer {
+        margin-top: 115rem;
+    }
+  }
+
+  
+  
+  
