@@ -34,7 +34,6 @@ function AddCityButton() {
     const [selectedCities, setSelectedCities] = useState([]);
     const [notSelectedCities, setNotSelectedCities] = useState(initialCities);
 
-  
     /*console.log("selectedCities:"+selectedCities);
     console.log(selectedCities);
     console.log("notSelectedCities:");
@@ -43,27 +42,15 @@ function AddCityButton() {
  
 
     function handleCityChange(event) {                                  // action performed from front-end i.e user clicks on a city
-        setCitySelectedByUser(event.target.value);                     //  the variable now stores the city which is clicked
+        const selectedCity = event.target.value;
+        setCitySelectedByUser(selectedCity);                             //  the variable now stores the city which is clicked
+        if(!selectedCities.includes(selectedCity)){
+            setSelectedCities(prevSelectedCities => [...prevSelectedCities, selectedCity]);
+            setNotSelectedCities(prevNotSelectedCities => prevNotSelectedCities.filter(eachCity => eachCity !== selectedCity));
+        }
     };
   
 
-    function handleAddCity (){                                                     
-        if(citySelectedByUser.length === 0 || selectedCities.includes(citySelectedByUser)){                              //do not return anything if nothing is selected
-            return null;
-        }                                                                    
-    
-        setSelectedCities(prevSelectedCities =>[...prevSelectedCities, citySelectedByUser]);                // update the selected cities list by adding a new city to the existing array of selected cities
-        setNotSelectedCities((prevNotSelectedCities) => {
-        const newNotSelectedCities = [];
-        prevNotSelectedCities.forEach(eachCity => {
-            if(eachCity !== citySelectedByUser){                                                            // stores all the city which is not selected by user to new not selected cities array
-                newNotSelectedCities.push(eachCity);
-            }
-        });
-        return newNotSelectedCities;      
-        });        
-   
-    };
 
     function handleRemoveCity(cityToRemove){
         setSelectedCities((prevSelectedCities) =>{
@@ -88,16 +75,10 @@ function AddCityButton() {
             let sortedArray = initialCitiesForCheck.filter(city => !selectedCitiesForCheck.includes(city));
             console.log("Aamir : sorted Array:"+sortedArray);
 
-            setNotSelectedCities(sortedArray);
-    
-    
-    
+            setNotSelectedCities(sortedArray);   
     }
-        
-
-
     useEffect(() =>{                                                                    // initially set array[0] by default as selected city            
-        setCitySelectedByUser(initialCities[0]);
+        setCitySelectedByUser();
     },[initialCities]);
 
    
@@ -113,7 +94,6 @@ function AddCityButton() {
                 </option>
                 ))}
                 </select>
-                <button onClick={handleAddCity}>Fetch</button>              {/* Calls function handle Add City*/}
             </div>
             <Cards                                                            
                 cities={selectedCities}  
