@@ -23,10 +23,10 @@ function AddCityButton() {
             "Patna",
             "Chandigarh",
             "Bhopal",
-            "Ahmedabad",
+            "Australia",
             "Agra",
-            "Chennai",
-            "Pune"
+            "Dammam",
+            "Amsterdam"
             
         ],[]);
 

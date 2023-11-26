@@ -23,12 +23,23 @@
     justify-content: space-between; /* Center vertically */
     align-items: center;
     margin-bottom: 20px;
-    background-image: url(../components/pexels-photo-19015077.webp);
+    /*background-image: url(../components/pexels-photo-19015077.webp);*/
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     color: #fff;
     position: relative;
+  }
+
+  .card.day {
+    background-image: url(../components/pexels-photo-19015077.webp);
+    color: black;
+  }
+  
+  
+  .card.night {
+    background-image: url(../components/pure-julia-NChuVFzZeNk-unsplash.jpg);
+    color: white;
   }
   
   .weatherInfo {
@@ -37,7 +48,7 @@
     font-size: medium;
     text-align: center; /* Center the text horizontally */
     margin-top: 1rem; 
-    color: black;
+   
   }
 
   .temperature{
@@ -83,8 +94,7 @@
 
   .cityName {
     padding-top: 1rem;
-    color: black;
-    font-weight:700;
+    font-weight:900;
     text-align: center; /* Center the text horizontally */
   }
 

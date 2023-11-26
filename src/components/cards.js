@@ -4,20 +4,19 @@ import React, { useEffect, useState } from "react";
 import "./cards.css";
 import RemoveCity from "./removeCity";
 
-const API_KEY = "96dcde12375aa5c602bdfe5dd413bbde";
+const API_KEY = "744495058acf45ef9f6140324230411";
 
 function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, clickXToRemoveCity }) {
   const [weatherData, setWeatherData] = useState([]);
   //console.log("selectedCities:"+selectedCities);
   //console.log("notSelectedCities:"+notSelectedCities);
-  
 
   async function fetchData(updatedCities) {
     setWeatherData([]);
     const dataPromises = updatedCities.map(async (city) => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+          `https://api.weatherapi.com/v1/forecast.json?key= ${API_KEY}&q=${city}`
         );
         if (response.ok) {
           const weatherInfo = await response.json();
@@ -35,6 +34,16 @@ function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, 
     setWeatherData(cityWeatherData);
   }
 
+  
+  function dayOrNight() {
+    return weatherData.map((eachCityData) => {
+      const isDayOrNot = eachCityData.weather.current.is_day ;
+      console.log("isDayOrNot:"+isDayOrNot);
+      return isDayOrNot;
+    });
+  } 
+  
+
   useEffect(() => {
     fetchData(cities);
   }, [cities]);
@@ -42,34 +51,44 @@ function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, 
   return (
     <div className="cardsDetails">
       {weatherData.map((eachCityData, index) => (
-        <div key={index} className="card" onClick={() => clickFetchToAddCity(eachCityData.city)}>
+        <div 
+        key={index} 
+        className={`card ${dayOrNight()[index] ? "day" : "night"}`}
+       
+        onClick={() => clickFetchToAddCity(eachCityData.city)}>
             <div className="cityName">{eachCityData.city.toUpperCase()}</div>
          
           <div className="weatherInfo">
             <span className="temperature">
-                 {(eachCityData.weather.main.temp - 273.15).toFixed(1)} 
+                 {(eachCityData.weather.current.temp_c )} °C
             </span> <br/>
             <span className="description">
-                {eachCityData.weather.weather[0].description}
+                {eachCityData.weather.current.condition.text}
             </span> <br/>
             <span className="highLowTemp">
-                H: {(eachCityData.weather.main.temp_max - 273.15).toFixed(1)} &nbsp;
-                L: {(eachCityData.weather.main.temp_min - 273.15).toFixed(1)}  
+                H: {(eachCityData.weather.forecast.forecastday[0].day.maxtemp_c)}°C  &nbsp;
+                L: {(eachCityData.weather.forecast.forecastday[0].day.mintemp_c)}°C  
             </span> <br/>
             <div className="humidity">
                 HUMIDITY<br/>
                 <span className="humidityDegree">
-                    {eachCityData.weather.main.humidity} % 
-                    
+                    {eachCityData.weather.current.humidity} %   
                 </span> 
-
             </div>
             <div className="windSpeed">
                 WINDSPEED<br/>
                 <span className="windSpeedInfo">
-                {eachCityData.weather.wind.speed} km/h <br />
+                {eachCityData.weather.current.wind_kph} km/h <br />
                 </span>   
             </div>
+            {/*<div className="isDayOrIsNight">
+                Day or Night<br/>
+                <span className="dayOrNight">
+                {dayOrNight()}  <br />
+                </span>   
+      </div>*/}
+            
+           
               
           </div>
           
