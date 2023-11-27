@@ -1,31 +1,16 @@
 
-.button-container {
-    display: flex;
-    align-items: center;
-  }
-  
   .rounded-circle {
     height: 1rem;
     overflow: hidden;
-
+    margin-left: 10rem;
+    margin-top: -0.5rem;
+    width: 10%;
   }
 
   .close-icon{
-    color: black;
+    color: rgb(255, 255, 255);
     font-weight: bold;
-    margin-left: 2rem;
-  }
-  
- 
-  .btn-close {
-    background-color: transparent; 
-    border: none;
-    padding: 6px; 
-    font-size: 0.3rem;
-    cursor: pointer;
-    color: #fff; 
-    border-radius: 10px; 
-    transition: background-color 0.3s ease; 
+    margin-left: -19rem;
   }
 
   .btn-close span{
@@ -33,14 +18,7 @@
     font-size: 1.5rem;
   }
   
-  .btn-close:hover {
-    background-color: transparent;
-  }
+  
   
  
-  .city-name {
-    margin-left: 10px; 
-    font-size: 1rem;
-    font-weight:600;
-  }
   

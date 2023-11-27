@@ -76,18 +76,21 @@ function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, 
                 H: {(eachCityData.weather.forecast.forecastday[0].day.maxtemp_c)}°C  &nbsp;
                 L: {(eachCityData.weather.forecast.forecastday[0].day.mintemp_c)}°C  
             </span> <br/>
-            <div className="humidity">
-                HUMIDITY<br/>
-                <span className="humidityDegree">
+            <div className="collections">
+              <div className="humidity">
+                  HUMIDITY<br/>
+                  <span className="humidityDegree">
                     {eachCityData.weather.current.humidity} %   
-                </span> 
+                  </span> 
+              </div>
+              <div className="windSpeed">
+                  WINDSPEED<br/>
+                  <span className="windSpeedInfo">
+                  {eachCityData.weather.current.wind_kph} km/h <br />
+                  </span>   
+              </div>  
             </div>
-            <div className="windSpeed">
-                WINDSPEED<br/>
-                <span className="windSpeedInfo">
-                {eachCityData.weather.current.wind_kph} km/h <br />
-                </span>   
-            </div>  
+            
           </div>
           </div>
         </div>

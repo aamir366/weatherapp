@@ -13,6 +13,7 @@ function AddCityButton() {
             "Hyderabad", 
             "Bangalore",
             "Jamshedpur",
+            "New Delhi",
             "Mumbai",
             "Kolkata",
             "Vishakhapatnam",
