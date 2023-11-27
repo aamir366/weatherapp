@@ -14,9 +14,6 @@ function AddCityButton() {
             "Bangalore",
             "Jamshedpur",
             "Mumbai",
-            "Delhi",
-            "Mumbai",
-            "Delhi",
             "Kolkata",
             "Vishakhapatnam",
             "Kanpur",
@@ -25,7 +22,7 @@ function AddCityButton() {
             "Bhopal",
             "Australia",
             "Agra",
-            "Dammam",
+            "Chennai",
             "Amsterdam"
             
         ],[]);

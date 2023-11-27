@@ -5,20 +5,20 @@
   }
   
   .rounded-circle {
-    border-radius: 50%;
+    height: 1rem;
     overflow: hidden;
-    
+
   }
 
   .close-icon{
     color: black;
     font-weight: bold;
-    
+    margin-left: 2rem;
   }
   
  
   .btn-close {
-    background-color: rgb(209, 207, 207); 
+    background-color: transparent; 
     border: none;
     padding: 6px; 
     font-size: 0.3rem;
@@ -29,11 +29,12 @@
   }
 
   .btn-close span{
-    font-size: 0.8rem;
+    padding-right: 1rem;
+    font-size: 1.5rem;
   }
   
   .btn-close:hover {
-    background-color: rgb(136, 136, 136); 
+    background-color: transparent;
   }
   
  

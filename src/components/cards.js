@@ -36,6 +36,7 @@ function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, 
 
   
   function dayOrNight() {
+
     return weatherData.map((eachCityData) => {
       const isDayOrNot = eachCityData.weather.current.is_day ;
       console.log("isDayOrNot:"+isDayOrNot);
@@ -53,9 +54,15 @@ function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, 
       {weatherData.map((eachCityData, index) => (
         <div 
         key={index} 
-        className={`card ${dayOrNight()[index] ? "day" : "night"}`}
+        className={`card ${dayOrNight()[index] ? "day" : "night"}`}>
+          <RemoveCity 
+            cityName={eachCityData.city}
+            selectedCities={selectedCities}
+            notSelectedCities={notSelectedCities}
+            clickXToRemoveCity={clickXToRemoveCity} />
+        
        
-        onClick={() => clickFetchToAddCity(eachCityData.city)}>
+        <div onClick={() => clickFetchToAddCity(eachCityData.city)}>
             <div className="cityName">{eachCityData.city.toUpperCase()}</div>
          
           <div className="weatherInfo">
@@ -80,23 +87,9 @@ function Cards({ cities,selectedCities, notSelectedCities, clickFetchToAddCity, 
                 <span className="windSpeedInfo">
                 {eachCityData.weather.current.wind_kph} km/h <br />
                 </span>   
-            </div>
-            {/*<div className="isDayOrIsNight">
-                Day or Night<br/>
-                <span className="dayOrNight">
-                {dayOrNight()}  <br />
-                </span>   
-      </div>*/}
-            
-           
-              
+            </div>  
           </div>
-          
-          <RemoveCity 
-            cityName={eachCityData.city}
-            selectedCities={selectedCities}
-            notSelectedCities={notSelectedCities}
-            clickXToRemoveCity={clickXToRemoveCity} />
+          </div>
         </div>
       ))}
     </div>

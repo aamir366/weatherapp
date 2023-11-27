@@ -5,12 +5,13 @@
     margin-top: 2rem;
     justify-content: center; /* Center the grid horizontally */
     overflow-x: auto;
-    width: 90%;
+    width: 110%;
+    
   }
   
   .card {
     flex: 0 0 calc(30% - 20px);
-    height: 20rem;
+    height: 15rem;
     width: auto;
     min-width: 0;
     padding: 20px;
@@ -23,7 +24,7 @@
     justify-content: space-between; /* Center vertically */
     align-items: center;
     margin-bottom: 20px;
-    /*background-image: url(../components/pexels-photo-19015077.webp);*/
+    background-image: url(../components/pexels-photo-19015077.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -34,12 +35,14 @@
   .card.day {
     background-image: url(../components/pexels-photo-19015077.webp);
     color: black;
+    max-width: 200px;
   }
   
   
   .card.night {
     background-image: url(../components/pure-julia-NChuVFzZeNk-unsplash.jpg);
     color: white;
+    max-width: 200px;
   }
   
   .weatherInfo {
@@ -52,49 +55,63 @@
   }
 
   .temperature{
-    font-size:4rem;
+    font-size:2rem;
     font-weight: bold;
     margin-bottom: 3rem;
   }
   
   .highLowTemp{
     font-weight: bold;
+    font-size: 0.8rem;
   }
 
   .description{
     text-transform: capitalize;
     font-weight: bold;
+    font-size:0.8rem;
   }
 
-  .humidity, .windSpeed {
-    height: 5rem;
-    width: 7rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    margin-top: 1rem;
+  .humidity {
+    height: 1.5rem;
+    width: 4rem;
+    margin-right: 4rem;
+    margin-top: 0.8rem;
     background-color: rgba(255, 255, 255, 0.384); 
     border-radius: 10px; 
     padding: 10px; 
     display: inline-block; 
-    font-size: larger;
+    font-size:0.5rem;
     font-weight: bold;
 }
 
+.windSpeed {
+  height: 1.5rem;
+  width: 4rem;
+  margin-left: 5rem;
+  background-color: rgba(255, 255, 255, 0.384); 
+  border-radius: 10px; 
+  padding: 10px; 
+  display: inline-block; 
+  font-size:0.5rem;
+  font-weight: bold;
+}
+
 .humidityDegree {
-    margin-left: 1rem;
-    font-size: xx-large;
+    margin-left: 0.7rem;
+    font-size: small;
     font-weight: 700;
 }
 
 .windSpeedInfo {
-  margin-left: 1rem;
-  font-size: x-large;
+  
+  font-size:0.7rem;
   font-weight: 700;
 }
 
   .cityName {
     padding-top: 1rem;
-    font-weight:900;
+    font-weight:bold;
+    font-size: small;
     text-align: center; /* Center the text horizontally */
   }
 
@@ -119,6 +136,8 @@
   color: #fff; 
   border-radius: 10px; 
   transition: background-color 0.3s ease; 
+  margin-top: -10rem;
+  margin-left: 10rem;
 }
 
 .btn-close span{
