@@ -15,7 +15,7 @@ function Weather() {
   };
 
   return (
-    <div>
+    <div className="box">
       <div className="weather">
         <span className="title">Weather App</span>
         <AddCityButton onAddCity={addNewCity} />                     {/*Add a new city to an array called selectedCities.*/} 
